@@ -128,7 +128,7 @@ class CreateInitialTables < ActiveRecord::Migration
       t.string   "operation",       :null => false
       t.string   "transaction_gid"
       t.text     "params"
-      t.integer  "amount"
+      t.money    "amount"
       t.text     "metadata"
       t.datetime "created_at",      :null => false
       t.datetime "updated_at",      :null => false
@@ -209,8 +209,8 @@ class CreateInitialTables < ActiveRecord::Migration
     create_table "shipping_methods", :force => true do |t|
       t.integer  "shipping_zone_id",                                                     :null => false
       t.string   "name",                                                                 :null => false
-      t.decimal  "minimum_order_amount", :precision => 8, :scale => 2
-      t.decimal  "maximum_order_amount", :precision => 8, :scale => 2
+      t.amount   "minimum_order_amount"
+      t.amount   "maximum_order_amount"
       t.decimal  "base_price",           :precision => 8, :scale => 2
       t.decimal  "offset",               :precision => 8, :scale => 2, :default => 0.0
       t.boolean  "active",                                             :default => true, :null => false

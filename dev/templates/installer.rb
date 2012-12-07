@@ -15,6 +15,8 @@ group :development, :test do
   gem 'debugger'
 end
 
+gem 'money-rails', github: 'RubyMoney/money-rails'
+
 GEMFILE
 
 run 'bundle install'
