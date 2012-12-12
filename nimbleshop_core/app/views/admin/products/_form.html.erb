@@ -13,23 +13,6 @@
     <% end %>
 
     <fieldset>
-      <div class="control-group">
-        <label class="control-label">Status</label>
-        <div class='controls'>
-          <label class="radio">
-            <%= f.radio_button :status, :active %>
-            Active
-          </label>
-          <label class="radio">
-            <%= f.radio_button :status, :hidden %>
-            Hidden
-          </label>
-          <label class="radio">
-            <%= f.radio_button :status, :sold_out %>
-            Sold Out
-          </label>
-        </div>
-      </div>
 
       <div class="control-group">
         <%= f.label :name, 'Name', class: 'control-label' %>
@@ -55,9 +38,38 @@
       <% @product.custom_field_answers.each do | answer | %>
         <%= render :partial => '/admin/products/custom_field_answer', :locals => { :f => f, :answer => answer } %>
       <% end %>
-    </fieldset>
 
+      <div class="control-group">
+        <label class="control-label">Status</label>
+        <div class='controls'>
+          <label class="radio">
+            <%= f.radio_button :status, :active %>
+            Active
+          </label>
+          <label class="radio">
+            <%= f.radio_button :status, :hidden %>
+            Hidden
+          </label>
+          <label class="radio">
+            <%= f.radio_button :status, :sold_out %>
+            Sold Out
+          </label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Digital product</label>
+        <div class='controls'>
+          <label class="checkbox">
+            <%= f.check_box :digital %>
+          </label>
+        </div>
+      </div>
+
+    </fieldset>
     <%= render 'handle_pictures', f: f  %>
+
+
 
     <div class="form-actions">
       <%= f.submit 'Submit', class: 'btn btn-primary', 'data-loading-text' => 'processing ...' %>

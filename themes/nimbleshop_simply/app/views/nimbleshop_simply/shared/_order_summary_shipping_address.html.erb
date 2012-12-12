@@ -1,4 +1,4 @@
-<% if current_order.shipping_address.persisted? && params[:controller] != "checkout/shipping_addresses" %>
+<% if current_order.shipping_address && current_order.shipping_address.persisted? && params[:controller] != "checkout/shipping_addresses" %>
   <div class='row'>
     <div class='span4' style='min-height:150px;'>
       <h3>

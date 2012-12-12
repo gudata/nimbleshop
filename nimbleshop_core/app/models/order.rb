@@ -140,6 +140,10 @@ class Order < ActiveRecord::Base
     ShippingMethod.available_for_countries(line_items_total)
   end
 
+  def has_digital_goods?
+    line_items.find { |l| l.digital }
+  end
+
   private
 
   def set_order_number

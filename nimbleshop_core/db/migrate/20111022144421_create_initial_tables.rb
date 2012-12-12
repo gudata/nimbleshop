@@ -63,6 +63,7 @@ class CreateInitialTables < ActiveRecord::Migration
       t.string   "product_name",                                      :null => false
       t.text     "product_description"
       t.decimal  "product_price",       :precision => 8, :scale => 2, :null => false
+      t.boolean  "digital",        default: false
       t.text     "metadata"
       t.datetime "created_at",                                        :null => false
       t.datetime "updated_at",                                        :null => false
@@ -179,9 +180,10 @@ class CreateInitialTables < ActiveRecord::Migration
 
     create_table "products", :force => true do |t|
       t.string   "name",                                                            :null => false
-      t.string   "status",                                    :default => "active", :null => false
+      t.string   "status",                                       default: "active", :null => false
       t.text     "description"
       t.decimal  "price",       :precision => 8, :scale => 2,                       :null => false
+      t.boolean  "digital",                                   default: false
       t.string   "permalink",                                                       :null => false
       t.datetime "created_at",                                                      :null => false
       t.datetime "updated_at",                                                      :null => false

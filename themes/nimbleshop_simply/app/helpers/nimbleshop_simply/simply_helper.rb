@@ -1,6 +1,14 @@
 module NimbleshopSimply
   module SimplyHelper
 
+    def first_checkout_url
+      if current_order.digital_goods?
+        new_checkout_payment_path
+      else
+        checkingout_cart_path
+      end
+    end
+
     # returns nil if the product does not have a main picture
     def product_main_picture(product, version = :medium_plus)
       if pic = product.picture

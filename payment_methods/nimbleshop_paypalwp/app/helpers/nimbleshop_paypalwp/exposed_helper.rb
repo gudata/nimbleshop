@@ -29,7 +29,10 @@ module NimbleshopPaypalwp
     def update_service_with_attributes(service, order)
       service.customer email: order.email
 
-      service.billing_address order.final_billing_address.attributes.slice(:city, :address1,:address2, :state, :country,:zip)
+      # incase of digital goods there is not final_billing_address
+      if order.final_billing_address
+        service.billing_address order.final_billing_address.attributes.slice(:city, :address1,:address2, :state, :country,:zip)
+      end
 
       service.invoice      order.number
       service.line_items   order.line_items
