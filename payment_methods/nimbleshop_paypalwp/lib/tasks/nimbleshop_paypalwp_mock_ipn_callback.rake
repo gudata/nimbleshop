@@ -1,15 +1,7 @@
 # This is a rake task that simulates what IPN will POST.
-# It posts what was posted by IPN for following purchase.
-#
-#  Colorful shoes - $191.00
-#  Quantity - 1
-#  Tax - $2.35
-# Shipping and handling - $30.00
-# Total - $223.35
 #
 
-desc 'sends IPN callback'
-
+desc 'mocks IPN callback from paypal'
 namespace :nimbleshop_paypalwp do
   task mock_ipn_callback: :environment do
 
@@ -83,7 +75,8 @@ namespace :nimbleshop_paypalwp do
       uri = URI.parse(endpoint)
       response = Net::HTTP.post_form(uri, params)
 
-      puts response.inspect
+      puts ''
+      puts "RESPONSE: #{response.inspect}"
 
   end
 end

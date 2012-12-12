@@ -2,7 +2,7 @@ module NimbleshopSimply
   module SimplyHelper
 
     def first_checkout_url
-      if current_order.digital_goods?
+      if current_order.has_digital_goods?
         new_checkout_payment_path
       else
         checkingout_cart_path

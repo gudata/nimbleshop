@@ -1,6 +1,11 @@
 <div class='span4 offset1' style='margin-top:5px;'>
   <div class='well' id='order-summary'>
     <h3>
+      <% if Rails.env.development? %>
+        <p class='light-link'>
+          # <%= current_order.number %>
+        </p>
+      <% end %>
       Order summary
       <small>
         <%= link_to 'change', cart_path, id: 'edit_cart', title: 'edit cart', class: 'light-link' %>

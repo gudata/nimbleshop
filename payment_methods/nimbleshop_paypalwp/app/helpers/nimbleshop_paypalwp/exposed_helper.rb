@@ -13,12 +13,12 @@ module NimbleshopPaypalwp
     end
 
     def nimbleshop_paypalwp_order_show_extra_info(order)
-      return unless NimbleshopPaypalwp::Paypalwp.first
+      return unless NimbleshopPaypalwp::Paypalwp.current
       render partial: '/nimbleshop_paypalwp/payments/order_show_extra_info', locals: { transaction: order.payment_transactions.last }
     end
 
     def nimbleshop_paypalwp_available_payment_options_icons
-      return unless NimbleshopPaypalwp::Paypalwp.first
+      return unless NimbleshopPaypalwp::Paypalwp.current
       image_tag "engines/nimbleshop_paypalwp/paypal_small.png", alt: 'paypal icon'
     end
 
